@@ -78,17 +78,14 @@ def simulate_forager(max_energy, laziness):
     #return {"html": html, "lifetime": lifetime, "eaten": eaten}
 
 def main():
-#    st.title("Inertial Forager Simulation")
-#    max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
-#    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
 #    Set page title
     st.set_page_config(page_title="Inertial Forager Simulation")
     
     # Create main title
     #st.title("Inertial Forager Simulation")
-    st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>")
+    st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
 
-    st.image("app.jpeg", use_column_width=True)
+    st.image("app.jpeg", caption="Illustration of the Forager Model", use_column_width=True, width=400)
     
     # Create sidebar for parameters
     with st.sidebar:
