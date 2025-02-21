@@ -73,19 +73,29 @@ def simulate_forager(max_energy, laziness):
     html = anim.to_jshtml()
     plt.close(fig)
 
-    #return anim.to_jshtml(), len(path)-1, int((width * height) - np.sum(space))
-    return {"html": html, "lifetime": lifetime, "eaten": eaten}
+    return anim.to_jshtml(), len(path)-1, int((width * height) - np.sum(space))
+    #return {"html": html, "lifetime": lifetime, "eaten": eaten}
 
-#def main():
+def main():
 #    st.title("Inertial Forager Simulation")
 #    max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
 #    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
-#    #if st.button("Run Simulation"):
-#    #    result = simulate_forager(max_energy, laziness)
-#    #    with st.spinner('Simulating...'):
-#    #        html, lifetime, eaten = result #simulate_forager(max_energy, laziness)
-#    #    st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
-#    #    st.components.v1.html(html, height=600, scrolling=True)
+     Set page title
+    st.set_page_config(page_title="Inertial Forager Simulation")
+    
+    # Create main title
+    st.title("Inertial Forager Simulation")
+    
+    # Create sidebar for parameters
+    with st.sidebar:
+        max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
+        laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
+    if st.button("Run Simulation"):
+        result = simulate_forager(max_energy, laziness)
+        with st.spinner('Simulating...'):
+            html, lifetime, eaten = result #simulate_forager(max_energy, laziness)
+        st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
+        st.components.v1.html(html, height=1000, width = 1000, scrolling=True)
 #    if st.button("Run Simulation"):
 #        with st.spinner('Simulating...'):
 #            html, lifetime, eaten = simulate_forager(max_energy, laziness)
@@ -97,45 +107,45 @@ def simulate_forager(max_energy, laziness):
 #    #    else:
 #    #        st.error("Simulation failed. Please try again.")
 
-def main():
-    """
-    Main Streamlit application function.
-    """
-    # Set page title
-    st.set_page_config(page_title="Inertial Forager Simulation")
-    
-    # Create main title
-    st.title("Inertial Forager Simulation")
-    
-    # Create sidebar for parameters
-    with st.sidebar:
-        max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
-        laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
-    
-    # Initialize session state if it doesn't exist
-    if 'simulation_results' not in st.session_state:
-        st.session_state.simulation_results = None
-    
-    # Create run button
-    if st.button("Run Simulation"):
-        # Show spinner while simulating
-        with st.spinner('Running simulation...'):
-            # Run simulation and store results
-            results = simulate_forager(max_energy, laziness)
-            st.session_state.simulation_results = results
-    
-    # Display results if they exist
-    if st.session_state.simulation_results is not None:
-        results = st.session_state.simulation_results
-        # Create columns for metrics
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Lifetime (steps)", results["lifetime"])
-        with col2:
-            st.metric("Cabbages eaten", results["eaten"])
-        
-        # Display animation
-        st.components.v1.html(results["html"], height=600)
+#def main():
+#    """
+#    Main Streamlit application function.
+#    """
+#    # Set page title
+#    st.set_page_config(page_title="Inertial Forager Simulation")
+#    
+#    # Create main title
+#    st.title("Inertial Forager Simulation")
+#    
+#    # Create sidebar for parameters
+#    with st.sidebar:
+#        max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
+#        laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
+#    
+#    # Initialize session state if it doesn't exist
+#    if 'simulation_results' not in st.session_state:
+#        st.session_state.simulation_results = None
+#    
+#    # Create run button
+#    if st.button("Run Simulation"):
+#        # Show spinner while simulating
+#        with st.spinner('Running simulation...'):
+#            # Run simulation and store results
+#            results = simulate_forager(max_energy, laziness)
+#            st.session_state.simulation_results = results
+#    
+#    # Display results if they exist
+#    if st.session_state.simulation_results is not None:
+#        results = st.session_state.simulation_results
+#        # Create columns for metrics
+#        col1, col2 = st.columns(2)
+#        with col1:
+#            st.metric("Lifetime (steps)", results["lifetime"])
+#        with col2:
+#            st.metric("Cabbages eaten", results["eaten"])
+#        
+#        # Display animation
+#        st.components.v1.html(results["html"], height=600)
 
 if __name__ == "__main__":
     main()
