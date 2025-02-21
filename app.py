@@ -48,7 +48,7 @@ def simulate_forager(max_energy, laziness):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 3.5))
     def init():
         ax1.clear(), ax2.clear()
-        ax1.set(xlim=(0, width-1), ylim=(0, height-1), title='Forager Movement')
+        ax1.set(xlim=(0, width), ylim=(0, height), title='Forager Movement')
         ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy+2), title='Energy Level')
         ax1.grid(True, linestyle='--', alpha=0.3)
         return []
