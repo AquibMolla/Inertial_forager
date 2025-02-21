@@ -29,7 +29,7 @@ def move_forager(x, y, energy, is_resting, space, width, height, max_energy, p):
     return x, y, energy, is_resting, False
 
 def simulate_forager(max_energy, laziness):
-    width = height = 3 * max_energy
+    width = height = 4 * max_energy
     space, food_sites = initialize_simulation(width, height)
     x, y = width//2, height//2
     energy, is_resting, is_dead = max_energy, True, False
@@ -45,7 +45,7 @@ def simulate_forager(max_energy, laziness):
         energy_history.append(energy)
         food_history.append([(i, j) for i in range(width) for j in range(height) if space[i, j] == 1])
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
     def init():
         ax1.clear(), ax2.clear()
         ax1.set(xlim=(0, width-1), ylim=(0, height-1), title='Forager Movement')
