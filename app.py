@@ -21,7 +21,7 @@ def move_forager(x, y, energy, is_resting, space, width, height, max_energy, p):
         dx, dy = random.choice([(0, 1), (1, 0), (0, -1), (-1, 0)])
         x += dx
         y += dy
-        if 0 <= x < width and 0 <= y < height and space[x, y] == 1:
+        if 0 <= x <= width and 0 <= y <= height and space[x, y] == 1:
             space[x, y] = 0
             energy = min(energy + max_energy, max_energy)
             if random.random() < p:
