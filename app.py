@@ -85,7 +85,7 @@ def main():
     #st.title("Inertial Forager Simulation")
     st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
     
-    st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True, width=400)
+    st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True, width=200)
     
     # Create sidebar for parameters
     with st.sidebar:
@@ -96,7 +96,7 @@ def main():
         with st.spinner('Simulating...'):
             html, lifetime, eaten = result #simulate_forager(max_energy, laziness)
         st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
-        st.components.v1.html(html, height=1000, width = 1000, scrolling=True)
+        st.components.v1.html(html, height=10000, width = 10000, scrolling=True)
 
 if __name__ == "__main__":
     main()
