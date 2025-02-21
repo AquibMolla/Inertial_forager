@@ -71,10 +71,11 @@ def simulate_forager(max_energy, laziness):
     
     anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=50)
     plt.close(fig)
+    print("Hi!!!")
     return anim.to_jshtml(), len(path)-1, int((width * height) - np.sum(space))
 
 def main():
-    st.title("Forager Simulation")
+    st.title("Inertial Forager Simulation")
     max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
     laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
     #if st.button("Run Simulation"):
