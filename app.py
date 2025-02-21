@@ -70,7 +70,7 @@ def simulate_forager(max_energy, laziness):
             ax1.text(0.5, 0.5, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='red', fontsize=15)
         return []
     
-    anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=50)
+    anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=120)
     html = anim.to_jshtml()
     plt.close(fig)
 
@@ -84,6 +84,7 @@ def main():
     # Create main title
     #st.title("Inertial Forager Simulation")
     st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Accha Rajeshwari Kobe sex hobe amader?????</h2>", unsafe_allow_html=True)
 
     st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True, width=400)
     
