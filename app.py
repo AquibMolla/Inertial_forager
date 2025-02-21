@@ -6,8 +6,8 @@ import random
 import streamlit as st
 
 def initialize_simulation(width, height):
-    space = np.ones((width, height))
-    food_sites = [(x, y) for x in range(width) for y in range(height)]
+    space = np.ones((width+1, height+1))
+    food_sites = [(x, y) for x in range(width+1) for y in range(height+1)]
     return space, food_sites
 
 def move_forager(x, y, energy, is_resting, space, width, height, max_energy, p):
@@ -30,7 +30,7 @@ def move_forager(x, y, energy, is_resting, space, width, height, max_energy, p):
 
 def simulate_forager(max_energy, laziness):
     width = height = 4 * max_energy
-    space, food_sites = initialize_simulation(width, height)
+    space, food_sites = initialize_simulation(width+1, height+1)
     x, y = width//2, height//2
     energy, is_resting, is_dead = max_energy, True, False
     path = [(x, y)]
@@ -73,7 +73,7 @@ def simulate_forager(max_energy, laziness):
     html = anim.to_jshtml()
     plt.close(fig)
 
-    return anim.to_jshtml(), len(path)-1, int((width * height) - np.sum(space))
+    return anim.to_jshtml(), len(path)-1, 1 + int((width * height) - np.sum(space))
     #return {"html": html, "lifetime": lifetime, "eaten": eaten}
 
 def main():
