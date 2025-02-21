@@ -73,7 +73,7 @@ def simulate_forager(max_energy, laziness):
     html = anim.to_jshtml()
     plt.close(fig)
 
-    return anim.to_jshtml(), len(path)-1, 1 + int((width * height) - np.sum(space))
+    return anim.to_jshtml(), len(path)-1, 1 + int(((width+1) * (height+1)) - np.sum(space))
     #return {"html": html, "lifetime": lifetime, "eaten": eaten}
 
 def main():
