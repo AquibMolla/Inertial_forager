@@ -61,13 +61,13 @@ def simulate_forager(max_energy, laziness):
             ax1.plot(fy, fx, 'go', markersize=5, alpha=0.7, label='Food')
         px, py = zip(*path[:frame+1])
         ax1.plot(py, px, 'b-', alpha=0.3, label='Path')
-        ax1.plot(py[-1], px[-1], 'ro', markersize=10, label='Forager')
+        ax1.plot(py[-1], px[-1], 'bo', markersize=10, label='Forager')
         ax1.grid(True, linestyle='--', alpha=0.3)
         ax1.set(xlim=(0, width), ylim=(0, height), title='Forager Movement')
         ax2.plot(energy_history[:frame+1], 'r-', label='Energy')
         ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy+2), title='Energy Level')
         if frame == len(path)-1:
-            ax1.text(0.5, 0.7, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='#ffffcc', fontsize=20)
+            ax1.text(0.5, 0.7, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='red', fontsize=20)
         return []
     
     anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=120)
