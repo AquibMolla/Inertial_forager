@@ -85,7 +85,10 @@ def main():
     st.set_page_config(page_title="Inertial Forager Simulation")
     
     # Create main title
-    st.title("Inertial Forager Simulation")
+    #st.title("Inertial Forager Simulation")
+    st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>")
+
+    st.image("app.jpeg", use_column_width=True)
     
     # Create sidebar for parameters
     with st.sidebar:
