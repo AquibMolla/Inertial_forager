@@ -84,15 +84,15 @@ def main():
     #    st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
     #    st.components.v1.html(html, height=600, scrolling=True)
     if st.button("Run Simulation"):
-    with st.spinner('Simulating...'):
-        result = simulate_forager(max_energy, laziness)
+        with st.spinner('Simulating...'):
+            result = simulate_forager(max_energy, laziness)
         
-    if result is not None and all(val is not None for val in result):
-        html, lifetime, eaten = result
-        st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
-        st.components.v1.html(html, height=600, scrolling=True)
-    else:
-        st.error("Simulation failed. Please try again.")
+        if result is not None and all(val is not None for val in result):
+            html, lifetime, eaten = result
+            st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
+            st.components.v1.html(html, height=600, scrolling=True)
+        else:
+            st.error("Simulation failed. Please try again.")
 
 if __name__ == "__main__":
     main()
