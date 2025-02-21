@@ -30,7 +30,7 @@ def move_forager(x, y, energy, is_resting, space, width, height, max_energy, p):
 
 def simulate_forager(max_energy, laziness):
     width = height = 4 * max_energy
-    space, food_sites = initialize_simulation(width, height)
+    space, food_sites = initialize_simulation(width+1, height+1)
     x, y = width//2, height//2
     energy, is_resting, is_dead = max_energy, True, False
     path = [(x, y)]
@@ -62,7 +62,7 @@ def simulate_forager(max_energy, laziness):
         ax1.plot(py, px, 'b-', alpha=0.3, label='Path')
         ax1.plot(py[-1], px[-1], 'ro', markersize=10, label='Forager')
         ax1.grid(True, linestyle='--', alpha=0.3)
-        ax1.set(xlim=(0, width-1), ylim=(0, height-1), title='Forager Movement')
+        ax1.set(xlim=(0, width), ylim=(0, height), title='Forager Movement')
         ax2.plot(energy_history[:frame+1], 'r-', label='Energy')
         ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy+2), title='Energy Level')
         if frame == len(path)-1:
