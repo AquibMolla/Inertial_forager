@@ -80,7 +80,7 @@ def main():
 #    st.title("Inertial Forager Simulation")
 #    max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
 #    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
-     Set page title
+#    Set page title
     st.set_page_config(page_title="Inertial Forager Simulation")
     
     # Create main title
