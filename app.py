@@ -78,8 +78,9 @@ def main():
     max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
     laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
     if st.button("Run Simulation"):
+        result = simulate_forager(max_energy, laziness)
         with st.spinner('Simulating...'):
-            html, lifetime, eaten = simulate_forager(max_energy, laziness)
+            html, lifetime, eaten = result #simulate_forager(max_energy, laziness)
         st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
         st.components.v1.html(html, height=600, scrolling=True)
 
