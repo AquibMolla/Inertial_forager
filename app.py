@@ -67,7 +67,7 @@ def simulate_forager(max_energy, laziness):
         ax2.plot(energy_history[:frame+1], 'r-', label='Energy')
         ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy+2), title='Energy Level')
         if frame == len(path)-1:
-            ax1.text(0.5, 0.5, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='red', fontsize=15)
+            ax1.text(0.5, 0.5, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='gold', fontsize=15)
         return []
     
     anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=120)
@@ -84,8 +84,7 @@ def main():
     # Create main title
     #st.title("Inertial Forager Simulation")
     st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center;'>Accha Rajeshwari Kobe sex hobe amader?????</h2>", unsafe_allow_html=True)
-
+    
     st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True, width=400)
     
     # Create sidebar for parameters
