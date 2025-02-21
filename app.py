@@ -39,7 +39,7 @@ def simulate_forager(max_energy, laziness):
     
     while not is_dead:
         x, y, energy, is_resting, is_dead = move_forager(
-            x, y, energy, is_resting, space, width, height, max_energy, laziness
+            x, y, energy, is_resting, space, width+1, height+1, max_energy, laziness
         )
         path.append((x, y))
         energy_history.append(energy)
