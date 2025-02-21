@@ -7,6 +7,7 @@ import streamlit as st
 
 def initialize_simulation(width, height):
     space = np.ones((width, height))
+    space[width//2,height//2] = 0
     food_sites = [(x, y) for x in range(width) for y in range(height)]
     return space, food_sites
 
@@ -32,7 +33,6 @@ def simulate_forager(max_energy, laziness):
     width = height = 4 * max_energy
     space, food_sites = initialize_simulation(width+1, height+1)
     x, y = width//2, height//2
-    food_sites[x,y] = 0
     energy, is_resting, is_dead = max_energy, True, False
     path = [(x, y)]
     energy_history = [energy]
