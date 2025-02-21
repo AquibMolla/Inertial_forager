@@ -32,6 +32,7 @@ def simulate_forager(max_energy, laziness):
     width = height = 4 * max_energy
     space, food_sites = initialize_simulation(width+1, height+1)
     x, y = width//2, height//2
+    food_sites[x,y] = 0
     energy, is_resting, is_dead = max_energy, True, False
     path = [(x, y)]
     energy_history = [energy]
@@ -73,7 +74,7 @@ def simulate_forager(max_energy, laziness):
     html = anim.to_jshtml()
     plt.close(fig)
 
-    return anim.to_jshtml(), len(path)-1, 1 + int(((width+1) * (height+1)) - np.sum(space))
+    return anim.to_jshtml(), len(path)-1, 0 + int(((width+1) * (height+1)) - np.sum(space))
     #return {"html": html, "lifetime": lifetime, "eaten": eaten}
 
 def main():
