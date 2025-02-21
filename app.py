@@ -51,7 +51,7 @@ def simulate_forager(max_energy, laziness):
         ax1.set(xlim=(0, width), ylim=(0, height), title='Forager Movement')
         ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy+2), title='Energy Level')
         ax1.grid(True, linestyle='--', alpha=0.3)
-        #return []
+        return []
     
     def update(frame):
         ax1.clear(), ax2.clear()
