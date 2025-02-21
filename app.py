@@ -45,7 +45,7 @@ def simulate_forager(max_energy, laziness):
         energy_history.append(energy)
         food_history.append([(i, j) for i in range(width) for j in range(height) if space[i, j] == 1])
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
     def init():
         ax1.clear(), ax2.clear()
         ax1.set(xlim=(0, width-1), ylim=(0, height-1), title='Forager Movement')
@@ -81,7 +81,7 @@ def main():
         with st.spinner('Simulating...'):
             html, lifetime, eaten = simulate_forager(max_energy, laziness)
         st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
-        st.components.v1.html(html, height=600)
+        st.components.v1.html(html, height=600, scrolling=True)
 
 if __name__ == "__main__":
     main()
