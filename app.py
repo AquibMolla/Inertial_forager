@@ -96,7 +96,7 @@ def main():
         with st.spinner('Simulating...'):
             html, lifetime, eaten = result #simulate_forager(max_energy, laziness)
         st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
-        st.components.v1.html(html, height=10000, width = 10000, scrolling=True)
+        st.components.v1.html(html, height=1000, width = 1000, scrolling=True)
 
 if __name__ == "__main__":
     main()
