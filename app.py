@@ -71,7 +71,7 @@ def simulate_forager(max_energy, laziness):
     
     anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=50)
     plt.close(fig)
-    return anim.to_jshtml(), len(path)-1, (width * height) - np.sum(space)
+    return anim.to_jshtml(), len(path)-1, int((width * height) - np.sum(space))
 
 def main():
     st.title("Forager Simulation")
