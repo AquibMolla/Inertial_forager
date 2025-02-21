@@ -67,7 +67,7 @@ def simulate_forager(max_energy, laziness):
         ax2.plot(energy_history[:frame+1], 'r-', label='Energy')
         ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy+2), title='Energy Level')
         if frame == len(path)-1:
-            ax1.text(0.5, 0.5, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='gold', fontsize=15)
+            ax1.text(0.5, 0.7, 'Forager died!', ha='center', va='center', transform=ax1.transAxes, color='#ffffcc', fontsize=20)
         return []
     
     anim = FuncAnimation(fig, update, frames=len(path), init_func=init, blit=False, interval=120)
