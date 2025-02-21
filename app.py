@@ -30,7 +30,7 @@ def move_forager(x, y, energy, is_resting, space, width, height, max_energy, p):
 
 def simulate_forager(max_energy, laziness):
     width = height = 4 * max_energy
-    space, food_sites = initialize_simulation(width, height)
+    space, food_sites = initialize_simulation(width+1, height+1)
     x, y = width//2, height//2
     energy, is_resting, is_dead = max_energy, True, False
     path = [(x, y)]
