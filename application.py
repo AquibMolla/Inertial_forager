@@ -35,7 +35,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Display image
-st.image("app.jpeg", caption="Illustration of the Forager Model", use_column_width=True)
+st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True)
 
 # Sidebar for parameters
 with st.sidebar:
@@ -130,5 +130,31 @@ if st.button("Run Simulation"):
     eaten = 0 + int(((width + 1) * (height + 1)) - np.sum(space))
 
     with st.spinner("Simulating..."):
-        st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
+        #st.write(f"Lifetime: {lifetime} steps | Cabbages eaten: {eaten}")
+        #st.components.v1.html(html, height=1000, width=1000, scrolling=True)
+        # Display results in cards
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f"""
+                <div style="padding: 10px; border-radius: 10px; background-color: #f0f2f6; text-align: center;">
+                    <h3>Lifetime</h3>
+                    <p style="font-size: 24px; font-weight: bold;">{lifetime} steps</p>
+                </div>
+            """, unsafe_allow_html=True)
+        with col2:
+            st.markdown(f"""
+                <div style="padding: 10px; border-radius: 10px; background-color: #f0f2f6; text-align: center;">
+                    <h3>Cabbages Eaten</h3>
+                    <p style="font-size: 24px; font-weight: bold;">{eaten}</p>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        # Display animation
         st.components.v1.html(html, height=1000, width=1000, scrolling=True)
+
+
+st.markdown("""
+    <div style="text-align: center; margin-top: 40px; color: #666;">
+        <p>Developed by [Md Aquib Molla] | <a href="https://github.com/your-repo" target="_blank">GitHub</a></p>
+    </div>
+""", unsafe_allow_html=True)
