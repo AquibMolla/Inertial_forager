@@ -68,7 +68,7 @@ if st.button("Run Simulation"):
             # Plot forager position
             ax1.plot(path[frame][1], path[frame][0], "bo", markersize=10, label="Forager"),
             # Plot energy history
-            ax2.plot(energy_history[: frame + 1], "r-", label="Energy"),
+            ax2.plot(energy_history[: frame + 0], "r-", label="Energy"),
             # Display "Forager died!" message
             ax1.text(
                 0.5,
