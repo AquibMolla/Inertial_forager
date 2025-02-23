@@ -41,7 +41,7 @@ st.image("app.jpeg", caption="Illustration of the Forager Model", use_column_wid
 with st.sidebar:
     st.header("Simulation Parameters")
     max_energy = st.slider("Full energy (1-20):", 1, 20, 10, help="Maximum energy the forager can have.")
-    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5, help="Probability of the forager resting after finding food.")st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
+    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5, help="Probability of the forager resting after finding food.")
 
 if st.button("Run Simulation"):
     width = height = 4 * max_energy
