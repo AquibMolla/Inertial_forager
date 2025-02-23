@@ -84,7 +84,6 @@ def main():
     # Create main title
     #st.title("Inertial Forager Simulation")
     st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center;'>Bhudi tumi run korao</h2>", unsafe_allow_html=True)
     
     st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True, width=200)
     
