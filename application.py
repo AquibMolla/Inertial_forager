@@ -11,7 +11,7 @@ st.set_page_config(page_title="Inertial Forager Simulation")
 st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
 
 # Display image
-st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True)
+st.image("app.jpeg", caption="Illustration of the Forager Model", use_column_width=True)
 
 # Create sidebar for parameters
 with st.sidebar:
@@ -31,8 +31,10 @@ if st.button("Run Simulation"):
 
     while not is_dead:
         energy -= 1
+        print(f"Step: {len(path)}, Energy: {energy}, Position: ({x}, {y})")  # Debug print
         if energy <= 0:
             is_dead = True
+            print("Forager died!")  # Debug print
         if is_resting:
             if random.random() > laziness:
                 is_resting = False
@@ -40,9 +42,13 @@ if st.button("Run Simulation"):
             dx, dy = random.choice([(0, 1), (1, 0), (0, -1), (-1, 0)])
             x += dx
             y += dy
+            # Ensure forager stays within bounds
+            x = max(0, min(x, width))
+            y = max(0, min(y, height))
             if 0 <= x <= width and 0 <= y <= height and space[x, y] == 1:
                 space[x, y] = 0
                 energy = min(energy + max_energy, max_energy)
+                print(f"Found food! Energy reset to {energy}")  # Debug print
                 if random.random() < laziness:
                     is_resting = True
         path.append((x, y))
@@ -72,7 +78,7 @@ if st.button("Run Simulation"):
             # Display "Forager died!" message
             ax1.text(
                 0.5,
-                0.8,
+                0.7,
                 "Forager died!",
                 ha="center",
                 va="center",
@@ -88,7 +94,7 @@ if st.button("Run Simulation"):
             ax1.clear(),
             ax2.clear(),
             ax1.set(xlim=(0, width), ylim=(0, height), title="Forager Movement"),
-            ax2.set(xlim=(0, (len(energy_history)-10)), ylim=(0, max_energy + 2), title="Energy Level"),
+            ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy + 2), title="Energy Level"),
             ax1.grid(True, linestyle="--", alpha=0.3),
         ],
         blit=False,
