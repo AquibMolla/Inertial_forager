@@ -84,12 +84,13 @@ def main():
     # Create main title
     #st.title("Inertial Forager Simulation")
     st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Bhudi tumi run korao</h2>", unsafe_allow_html=True)
     
     st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True, width=200)
     
     # Create sidebar for parameters
     with st.sidebar:
-        max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
+        max_energy = st.slider("Full energy (1-20):", 1, 25, 12)
         laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
     if st.button("Run Simulation"):
         result = simulate_forager(max_energy, laziness)
