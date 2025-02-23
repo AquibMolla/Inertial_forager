@@ -7,16 +7,41 @@ import streamlit as st
 # Set page title
 st.set_page_config(page_title="Inertial Forager Simulation")
 
-# Create main title
-st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
+# Custom CSS for styling
+st.markdown("""
+    <style>
+    .stButton button {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 18px;
+        padding: 10px 24px;
+        border-radius: 8px;
+        border: none;
+        width: 100%;
+    }
+    .stButton button:hover {
+        background-color: #45a049;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Header with description
+st.markdown("""
+    <h2 style='text-align: center;'>Welcome to the Inertial Forager Simulation!</h2>
+    <p style='text-align: center;'>
+        This simulation models the behavior of a forager searching for food in a grid world.
+        Adjust the parameters in the sidebar and click "Run Simulation" to see the forager in action!
+    </p>
+""", unsafe_allow_html=True)
 
 # Display image
 st.image("app.jpeg", caption="Illustration of the Forager Model", use_column_width=True)
 
-# Create sidebar for parameters
+# Sidebar for parameters
 with st.sidebar:
-    max_energy = st.slider("Full energy (1-20):", 1, 20, 10)
-    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
+    st.header("Simulation Parameters")
+    max_energy = st.slider("Full energy (1-20):", 1, 20, 10, help="Maximum energy the forager can have.")
+    laziness = st.slider("Laziness (0-1):", 0.0, 1.0, 0.5, help="Probability of the forager resting after finding food.")st.slider("Laziness (0-1):", 0.0, 1.0, 0.5)
 
 if st.button("Run Simulation"):
     width = height = 4 * max_energy
