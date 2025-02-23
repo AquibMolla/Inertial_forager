@@ -88,7 +88,7 @@ if st.button("Run Simulation"):
             ax1.clear(),
             ax2.clear(),
             ax1.set(xlim=(0, width), ylim=(0, height), title="Forager Movement"),
-            ax2.set(xlim=(0, len(energy_history)-1), ylim=(0, max_energy + 2), title="Energy Level"),
+            ax2.set(xlim=(0, (len(energy_history)-10)), ylim=(0, max_energy + 2), title="Energy Level"),
             ax1.grid(True, linestyle="--", alpha=0.3),
         ],
         blit=False,
