@@ -155,6 +155,6 @@ if st.button("Run Simulation"):
 
 st.markdown("""
     <div style="text-align: center; margin-top: 40px; color: #666;">
-        <p>Developed by [Md Aquib Molla] | <a href="https://github.com/your-repo" target="_blank">GitHub</a></p>
+        <p>Developed by- Md Aquib Molla | <a href="https://github.com/AquibMolla" target="_blank">GitHub</a></p>
     </div>
 """, unsafe_allow_html=True)
