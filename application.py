@@ -31,11 +31,9 @@ if st.button("Run Simulation"):
 
     while not is_dead:
         energy -= 1
-        print(f"Step: {len(path)}, Energy: {energy}, Position: ({x}, {y})")  # Debug print
         if energy <= 0:
             is_dead = True
-            print("Forager died!")  # Debug print
-        if is_resting:
+        elif is_resting:
             if random.random() > laziness:
                 is_resting = False
         else:
@@ -48,7 +46,6 @@ if st.button("Run Simulation"):
             if 0 <= x <= width and 0 <= y <= height and space[x, y] == 1:
                 space[x, y] = 0
                 energy = min(energy + max_energy, max_energy)
-                print(f"Found food! Energy reset to {energy}")  # Debug print
                 if random.random() < laziness:
                     is_resting = True
         path.append((x, y))
