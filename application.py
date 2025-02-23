@@ -11,7 +11,7 @@ st.set_page_config(page_title="Inertial Forager Simulation")
 st.markdown("<h1 style='text-align: center;'>Inertial Forager Simulation</h1>", unsafe_allow_html=True)
 
 # Display image
-st.image("app.jpeg", caption="Illustration of the Forager Model", use_column_width=True)
+st.image("app.jpeg", caption="Illustration of the Forager Model", use_container_width=True)
 
 # Create sidebar for parameters
 with st.sidebar:
@@ -61,9 +61,15 @@ if st.button("Run Simulation"):
             ax1.set(xlim=(0, width), ylim=(0, height), title="Forager Movement"),
             ax2.set(xlim=(0, len(energy_history)), ylim=(0, max_energy + 2), title="Energy Level"),
             ax1.grid(True, linestyle="--", alpha=0.3),
+            # Plot food sites
+            ax1.plot(*zip(*[(fy, fx) for fx, fy in food_history[frame]]), "go", markersize=5, alpha=0.7, label="Food"),
+            # Plot forager path
             ax1.plot(*zip(*[(py, px) for px, py in path[: frame + 1]]), "b-", alpha=0.3, label="Path"),
+            # Plot forager position
             ax1.plot(path[frame][1], path[frame][0], "bo", markersize=10, label="Forager"),
+            # Plot energy history
             ax2.plot(energy_history[: frame + 1], "r-", label="Energy"),
+            # Display "Forager died!" message
             ax1.text(
                 0.5,
                 0.7,
