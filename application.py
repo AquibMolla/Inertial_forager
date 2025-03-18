@@ -77,7 +77,7 @@ if st.button("Run Simulation"):
         energy_history.append(energy)
         food_history.append([(i, j) for i in range(width + 1) for j in range(height + 1) if space[i, j] == 1])
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 3.5))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 3.6))
 
     # Animation logic
     frames = len(path)
