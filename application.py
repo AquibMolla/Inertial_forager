@@ -77,7 +77,7 @@ if st.button("Run Simulation"):
         energy_history.append(energy)
         food_history.append([(i, j) for i in range(width + 1) for j in range(height + 1) if space[i, j] == 1])
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 3.6))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5), dpi=100)
 
     # Animation logic
     frames = len(path)
@@ -122,7 +122,8 @@ if st.button("Run Simulation"):
         blit=False,
         interval=120,
     )
-
+    
+    plt.tight_layout()
     html = anim.to_jshtml()
     plt.close(fig)
 
@@ -150,7 +151,7 @@ if st.button("Run Simulation"):
             """, unsafe_allow_html=True)
         
         # Display animation
-        st.components.v1.html(html, height=1000, width=1000, scrolling=True)
+        st.components.v1.html(html,  height=600, width=1200, scrolling=True)
 
 
 st.markdown("""
