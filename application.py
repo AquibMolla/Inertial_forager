@@ -151,7 +151,7 @@ if st.button("Run Simulation"):
             """, unsafe_allow_html=True)
         
         # Display animation
-        st.components.v1.html(html,  height=600, width=1200, scrolling=True)
+        st.components.v1.html(html,  height=800, width=1000, scrolling=True)
 
 
 st.markdown("""
